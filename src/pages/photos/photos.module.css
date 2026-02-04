@@ -1,0 +1,30 @@
+.photosGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.photoItem {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.photoItem:hover {
+    transform: scale(1.02);
+}
+
+.photoItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}

@@ -12,7 +12,7 @@ const Header = () => {
                 <p>📍Mountain View, California</p>
                 <ul>
                     <li>
-                        <NavLink to='/albums'>Albums</NavLink>
+                        <NavLink to='/photos'>Photos</NavLink>
                     </li>
                     <li>
                         <NavLink to='/gear'>Gear</NavLink>
