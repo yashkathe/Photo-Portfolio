@@ -5,11 +5,7 @@ const Gear = () => {
     return (
         <React.Fragment>
             <div>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                oops
             </div>
         </React.Fragment>
     )

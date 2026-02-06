@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAnimations } from '../contexts/AnimationContext';
+import { useAnimations } from '../../../contexts/AnimationContext';
 import classes from './PhotoModal.module.css';
 
 const PhotoModal = ({ photo, isOpen, onClose }) => {

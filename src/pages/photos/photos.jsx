@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 import classes from './photos.module.css'
-import PhotoModal from '../../ui-components/PhotoModal'
+import PhotoModal from './components/PhotoModal'
+import { useAnimations } from '../../contexts/AnimationContext'
 
 const Photos = () => {
     const [photos, setPhotos] = useState([])
     const [selectedPhoto, setSelectedPhoto] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const { photoItemVariants, getPhotoTransition } = useAnimations()
 
     useEffect(() => {
         fetch('/photos.json')
@@ -35,13 +38,19 @@ const Photos = () => {
         <React.Fragment>
             <div className={classes.photosGrid}>
                 {photos.map((photo, index) => (
-                    <div 
+                    <motion.div 
                         key={index} 
                         className={classes.photoItem}
                         onClick={() => handlePhotoClick(photo)}
+                        variants={photoItemVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        whileHover="hover"
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={getPhotoTransition(index)}
                     >
                         <img src={photo.link} alt={photo.name} />
-                    </div>
+                    </motion.div>
                 ))}
             </div>
             <PhotoModal

@@ -1,28 +1,51 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useAnimations } from "../contexts/AnimationContext";
 import classes from './header.module.css'
 
-const Header = () => {
+const Header = ({ isVisible }) => {
+    const { headerVariants } = useAnimations();
+    const location = useLocation();
 
     return (
-        <React.Fragment>
-            <div className={classes.parent}>
-                <NavLink to='/'><h1>Yash Kathe</h1></NavLink>
-                <p>📍Mountain View, California</p>
-                <ul>
-                    <li>
-                        <NavLink to='/photos'>Photos</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/gear'>Gear</NavLink>
-                    </li>
-                </ul>
+        <motion.header
+            className={classes.header}
+            variants={headerVariants}
+            animate={isVisible ? "visible" : "hidden"}
+            initial="visible"
+        >
+            <div className={classes.container}>
+                <NavLink to='/' className={classes.logo}>
+                    <h1>Yash Kathe</h1>
+                </NavLink>
+                <nav className={classes.nav}>
+                    <ul className={classes.navList}>
+                        <li>
+                            <NavLink 
+                                to='/photos' 
+                                className={({ isActive }) => 
+                                    isActive ? `${classes.navLink} ${classes.active}` : classes.navLink
+                                }
+                            >
+                                Photos
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink 
+                                to='/gear'
+                                className={({ isActive }) => 
+                                    isActive ? `${classes.navLink} ${classes.active}` : classes.navLink
+                                }
+                            >
+                                Gear
+                            </NavLink>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </React.Fragment>
-
+        </motion.header>
     )
 }
-
 
 export default Header

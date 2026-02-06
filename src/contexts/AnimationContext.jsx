@@ -11,7 +11,7 @@ export const useAnimations = () => {
 };
 
 export const AnimationProvider = ({ children }) => {
-    // Modal animations
+    
     const modalBackdropVariants = {
         hidden: {
             opacity: 0,
@@ -42,7 +42,7 @@ export const AnimationProvider = ({ children }) => {
             opacity: 1,
             transition: {
                 duration: 0.4,
-                ease: [0.16, 1, 0.3, 1], // Custom easing for smooth animation
+                ease: [0.16, 1, 0.3, 1], 
             },
         },
         exit: {
@@ -65,7 +65,6 @@ export const AnimationProvider = ({ children }) => {
             opacity: 1,
             transition: {
                 duration: 0.5,
-                delay: 0.1,
                 ease: [0.16, 1, 0.3, 1],
             },
         },
@@ -103,11 +102,54 @@ export const AnimationProvider = ({ children }) => {
         },
     };
 
+    const headerVariants = {
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+            },
+        },
+        hidden: {
+            y: -100,
+            opacity: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+            },
+        },
+    };
+
+    const photoItemVariants = {
+        hidden: {
+            opacity: 0,
+            scale: 0.9,
+        },
+        visible: {
+            opacity: 1,
+            scale: 1,
+        },
+        hover: {
+            scale: 1.05,
+            transition: {
+                duration: 0.1,
+            },
+        },
+    };
+
+    const getPhotoTransition = (index) => ({
+        delay: Math.random(),
+    });
+
     const value = {
         modalBackdropVariants,
         modalContentVariants,
         modalImageVariants,
         modalTextVariants,
+        headerVariants,
+        photoItemVariants,
+        getPhotoTransition,
     };
 
     return (

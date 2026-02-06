@@ -14,6 +14,36 @@
       "link": "seal_01222026.jpg",
       "name": "Photo 3",
       "caption": "City lights at night"
+    },
+    {
+      "link": "/elk_01222026.jpg",
+      "name": "Photo 1",
+      "caption": "A beautiful landscape"
+    },
+    {
+      "link": "hawk_01222026.jpg",
+      "name": "Photo 2",
+      "caption": "Sunset over mountains"
+    },
+    {
+      "link": "seal_01222026.jpg",
+      "name": "Photo 3",
+      "caption": "City lights at night"
+    },     
+    {
+      "link": "/elk_01222026.jpg",
+      "name": "Photo 1",
+      "caption": "A beautiful landscape"
+    },
+    {
+      "link": "hawk_01222026.jpg",
+      "name": "Photo 2",
+      "caption": "Sunset over mountains"
+    },
+    {
+      "link": "seal_01222026.jpg",
+      "name": "Photo 3",
+      "caption": "City lights at night"
     }  
   ]
 }
