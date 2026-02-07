@@ -2,7 +2,7 @@
     "name": "photo-portfolio",
     "homepage": "https://photos.yashkathe.dev",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.2.1",
     "type": "module",
     "scripts": {
         "dev": "vite",
