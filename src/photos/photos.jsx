@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import classes from './photos.module.css'
 import PhotoModal from './components/PhotoModal'
-import { useAnimations } from '../../contexts/AnimationContext'
+import { useAnimations } from '../contexts/AnimationContext'
 
 const Photos = () => {
     const [photos, setPhotos] = useState([])
@@ -28,7 +28,6 @@ const Photos = () => {
 
     const handleCloseModal = () => {
         setIsModalOpen(false)
-        // Delay clearing selected photo to allow exit animation
         setTimeout(() => {
             setSelectedPhoto(null)
         }, 300)
