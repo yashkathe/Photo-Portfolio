@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import classes from './photos.module.css'
 import PhotoModal from './components/PhotoModal'
+import Spinner from "../ui-components/spinner"
 import { useAnimations } from '../contexts/AnimationContext'
 
 const Photos = () => {
@@ -40,6 +41,7 @@ const Photos = () => {
             })
             .catch(error => {
                 setHasMore(false)
+                setIsLoading(false)
             })
             .finally(() => {
                 setIsLoading(false)
@@ -94,6 +96,7 @@ const Photos = () => {
                     </motion.div>
                 ))}
             </div>
+            <div>{isLoading && <Spinner/>}</div>
             <div ref={sentinelRef} className={classes.sentinel} />
             <PhotoModal
                 photo={selectedPhoto}
