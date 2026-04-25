@@ -31,16 +31,6 @@ const Header = ({ isVisible }) => {
                                 Photos
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink 
-                                to='/gear'
-                                className={({ isActive }) => 
-                                    isActive ? `${classes.navLink} ${classes.active}` : classes.navLink
-                                }
-                            >
-                                Gear
-                            </NavLink>
-                        </li>
                     </ul>
                 </nav>
             </div>

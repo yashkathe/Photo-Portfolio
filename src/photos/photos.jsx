@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import classes from './photos.module.css'
 import PhotoModal from './components/PhotoModal'
@@ -6,20 +6,62 @@ import { useAnimations } from '../contexts/AnimationContext'
 
 const Photos = () => {
     const [photos, setPhotos] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [isLoading, setIsLoading] = useState(false)
+    const [hasMore, setHasMore] = useState(true)
     const [selectedPhoto, setSelectedPhoto] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const { photoItemVariants, getPhotoTransition } = useAnimations()
+    const sentinelRef = useRef(null)
+    const initializedRef = useRef(false)
 
+    // Load initial photos
     useEffect(() => {
-        fetch('/photos.json')
-            .then(response => response.json())
+        if (initializedRef.current) return
+        initializedRef.current = true
+        fetchPhotos(1)
+    }, [])
+
+    const fetchPhotos = (pageNum) => {
+        setIsLoading(true)
+        fetch(`/photos-${pageNum}.json`)
+            .then(response => {
+                if (!response.ok) throw new Error('No more pages')
+                return response.json()
+            })
             .then(data => {
-                setPhotos(data.photos || [])
+                const newPhotos = data.photos || []
+                if (newPhotos.length === 0) {
+                    setHasMore(false)
+                } else {
+                    setPhotos(prev => [...prev, ...newPhotos])
+                    setCurrentPage(pageNum + 1)
+                }
             })
             .catch(error => {
-                console.error('Error loading photos:', error)
+                setHasMore(false)
             })
-    }, [])
+            .finally(() => {
+                setIsLoading(false)
+            })
+    }
+
+    // Infinite scroll observer
+    useEffect(() => {
+        if (!hasMore || isLoading || !sentinelRef.current) return
+
+        const observer = new IntersectionObserver(
+            entries => {
+                if (entries[0].isIntersecting && hasMore && !isLoading) {
+                    fetchPhotos(currentPage)
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        observer.observe(sentinelRef.current)
+        return () => observer.disconnect()
+    }, [currentPage, hasMore, isLoading])
 
     const handlePhotoClick = (photo) => {
         setSelectedPhoto(photo)
@@ -52,6 +94,7 @@ const Photos = () => {
                     </motion.div>
                 ))}
             </div>
+            <div ref={sentinelRef} className={classes.sentinel} />
             <PhotoModal
                 photo={selectedPhoto}
                 isOpen={isModalOpen}

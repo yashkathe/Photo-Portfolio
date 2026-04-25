@@ -6,7 +6,6 @@ import classes from './App.module.css'
 import Header from './ui-components/header'
 import Home from './home/home'
 import Photos from './photos/photos'
-import Gear from './gear/gear'
 
 function App() {
     const location = useLocation();
@@ -48,7 +47,6 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/photos" element={<Photos/>} />
-                        <Route path="/gear" element={<Gear/>} />
                     </Routes>
                 </div>
             </div>

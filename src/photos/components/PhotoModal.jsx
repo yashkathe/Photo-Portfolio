@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAnimations } from '../../contexts/AnimationContext';
 import classes from './PhotoModal.module.css';
@@ -10,6 +10,19 @@ const PhotoModal = ({ photo, isOpen, onClose }) => {
         modalImageVariants,
         modalTextVariants,
     } = useAnimations();
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const handleEscapeKey = (event) => {
+            if (event.key === 'Escape') {
+                onClose();
+            }
+        };
+
+        window.addEventListener('keydown', handleEscapeKey);
+        return () => window.removeEventListener('keydown', handleEscapeKey);
+    }, [isOpen, onClose]);
 
     if (!photo) return null;
 

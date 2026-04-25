@@ -1,50 +1,56 @@
 .photosGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    padding: 30px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 28px;
+    padding: 40px 20px;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
     .photosGrid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        padding: 40px 25px;
+        gap: 32px;
     }
 }
 
 @media (min-width: 1024px) {
     .photosGrid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 50px 30px;
+        gap: 40px;
     }
 }
 
 @media (min-width: 1400px) {
     .photosGrid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 35px;
+        padding: 50px 40px;
+        gap: 44px;
+        max-width: 1600px;
     }
 }
 
 .photoItem {
     width: 100%;
     max-width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 10px;
     position: relative;
     display: block;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .photoItem:hover {
-    transform: scale(1.02);
+    transform: scale(1.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
 .photoItem img {
@@ -52,4 +58,14 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: opacity 0.3s ease;
+}
+
+.photoItem:hover img {
+    opacity: 0.95;
+}
+
+.sentinel {
+    height: 100px;
+    margin-top: 40px;
 }
