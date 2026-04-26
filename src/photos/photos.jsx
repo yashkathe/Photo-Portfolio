@@ -15,6 +15,7 @@ const Photos = () => {
     const { photoItemVariants, getPhotoTransition } = useAnimations()
     const sentinelRef = useRef(null)
     const initializedRef = useRef(false)
+    const inFlightPagesRef = useRef(new Set())
 
     // Load initial photos
     useEffect(() => {
@@ -24,6 +25,9 @@ const Photos = () => {
     }, [])
 
     const fetchPhotos = (pageNum) => {
+        if (inFlightPagesRef.current.has(pageNum)) return
+        inFlightPagesRef.current.add(pageNum)
+
         setIsLoading(true)
         fetch(`/photos-${pageNum}.json`)
             .then(response => {
@@ -35,7 +39,11 @@ const Photos = () => {
                 if (newPhotos.length === 0) {
                     setHasMore(false)
                 } else {
-                    setPhotos(prev => [...prev, ...newPhotos])
+                    setPhotos(prev => {
+                        const existingLinks = new Set(prev.map(photo => photo.link))
+                        const uniqueNewPhotos = newPhotos.filter(photo => !existingLinks.has(photo.link))
+                        return [...prev, ...uniqueNewPhotos]
+                    })
                     setCurrentPage(pageNum + 1)
                 }
             })
@@ -44,6 +52,7 @@ const Photos = () => {
                 setIsLoading(false)
             })
             .finally(() => {
+                inFlightPagesRef.current.delete(pageNum)
                 setIsLoading(false)
             })
     }
