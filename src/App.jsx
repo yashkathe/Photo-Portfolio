@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import classes from './App.module.css'
 
 import Header from './ui-components/header'
-import Home from './home/home'
 import Photos from './photos/photos'
 
 function App() {
@@ -45,7 +44,7 @@ function App() {
                 {!isHomePage && <Header isVisible={isHeaderVisible} />}
                 <div className={`${classes.content} ${isHomePage ? classes.contentNoHeader : ''}`}>
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={<Navigate to="/photos" replace />} />
                         <Route path="/photos" element={<Photos/>} />
                     </Routes>
                 </div>
