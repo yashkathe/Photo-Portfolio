@@ -5,9 +5,22 @@ import PhotoModal from './components/PhotoModal'
 import Spinner from "../ui-components/spinner"
 import { useAnimations } from '../contexts/AnimationContext'
 
+const PHOTO_FILES = ['/photos-1.json', '/photos-2.json', '/photos-3.json']
+
+const shufflePhotos = (items) => {
+    const shuffled = [...items]
+
+    for (let i = shuffled.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
+
+    return shuffled
+}
+
 const Photos = () => {
     const [photos, setPhotos] = useState([])
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentFileIndex, setCurrentFileIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false)
     const [hasMore, setHasMore] = useState(true)
     const [selectedPhoto, setSelectedPhoto] = useState(null)
@@ -15,21 +28,23 @@ const Photos = () => {
     const { photoItemVariants, getPhotoTransition } = useAnimations()
     const sentinelRef = useRef(null)
     const initializedRef = useRef(false)
-    const inFlightPagesRef = useRef(new Set())
+    const inFlightFilesRef = useRef(new Set())
+    const fileOrderRef = useRef(shufflePhotos(PHOTO_FILES))
 
     // Load initial photos
     useEffect(() => {
         if (initializedRef.current) return
         initializedRef.current = true
-        fetchPhotos(1)
+        fetchPhotos(0)
     }, [])
 
-    const fetchPhotos = (pageNum) => {
-        if (inFlightPagesRef.current.has(pageNum)) return
-        inFlightPagesRef.current.add(pageNum)
+    const fetchPhotos = (fileIndex) => {
+        const filePath = fileOrderRef.current[fileIndex]
+        if (!filePath || inFlightFilesRef.current.has(filePath)) return
+        inFlightFilesRef.current.add(filePath)
 
         setIsLoading(true)
-        fetch(`/photos-${pageNum}.json`)
+        fetch(filePath)
             .then(response => {
                 if (!response.ok) throw new Error('No more pages')
                 return response.json()
@@ -37,14 +52,20 @@ const Photos = () => {
             .then(data => {
                 const newPhotos = data.photos || []
                 if (newPhotos.length === 0) {
-                    setHasMore(false)
+                    setCurrentFileIndex(fileIndex + 1)
+                    setHasMore(fileIndex + 1 < fileOrderRef.current.length)
                 } else {
                     setPhotos(prev => {
                         const existingLinks = new Set(prev.map(photo => photo.link))
                         const uniqueNewPhotos = newPhotos.filter(photo => !existingLinks.has(photo.link))
-                        return [...prev, ...uniqueNewPhotos]
+                        const shuffledNewPhotos = shufflePhotos(uniqueNewPhotos)
+
+                        return prev.length === 0
+                            ? shuffledNewPhotos
+                            : [...prev, ...shuffledNewPhotos]
                     })
-                    setCurrentPage(pageNum + 1)
+                    setCurrentFileIndex(fileIndex + 1)
+                    setHasMore(fileIndex + 1 < fileOrderRef.current.length)
                 }
             })
             .catch(error => {
@@ -52,7 +73,7 @@ const Photos = () => {
                 setIsLoading(false)
             })
             .finally(() => {
-                inFlightPagesRef.current.delete(pageNum)
+                inFlightFilesRef.current.delete(filePath)
                 setIsLoading(false)
             })
     }
@@ -64,7 +85,7 @@ const Photos = () => {
         const observer = new IntersectionObserver(
             entries => {
                 if (entries[0].isIntersecting && hasMore && !isLoading) {
-                    fetchPhotos(currentPage)
+                    fetchPhotos(currentFileIndex)
                 }
             },
             { threshold: 0.1 }
@@ -72,7 +93,7 @@ const Photos = () => {
 
         observer.observe(sentinelRef.current)
         return () => observer.disconnect()
-    }, [currentPage, hasMore, isLoading])
+    }, [currentFileIndex, hasMore, isLoading])
 
     const handlePhotoClick = (photo) => {
         setSelectedPhoto(photo)
@@ -91,7 +112,7 @@ const Photos = () => {
             <div className={classes.photosGrid}>
                 {photos.map((photo, index) => (
                     <motion.div 
-                        key={index} 
+                        key={photo.link} 
                         className={classes.photoItem}
                         onClick={() => handlePhotoClick(photo)}
                         variants={photoItemVariants}
