@@ -4,19 +4,9 @@ import classes from './photos.module.css'
 import PhotoModal from './components/PhotoModal'
 import Spinner from "../ui-components/spinner"
 import { useAnimations } from '../contexts/AnimationContext'
+import { getSeededPhotoOrder, shufflePhotos } from './photoOrder'
 
 const PHOTO_FILES = ['/photos-1.json', '/photos-2.json', '/photos-3.json']
-
-const shufflePhotos = (items) => {
-    const shuffled = [...items]
-
-    for (let i = shuffled.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(Math.random() * (i + 1))
-        ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-    }
-
-    return shuffled
-}
 
 const Photos = () => {
     const [photos, setPhotos] = useState([])
@@ -29,7 +19,7 @@ const Photos = () => {
     const sentinelRef = useRef(null)
     const initializedRef = useRef(false)
     const inFlightFilesRef = useRef(new Set())
-    const fileOrderRef = useRef(shufflePhotos(PHOTO_FILES))
+    const fileOrderRef = useRef(getSeededPhotoOrder(PHOTO_FILES))
 
     // Load initial photos
     useEffect(() => {
