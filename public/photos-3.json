@@ -3,52 +3,62 @@
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-020820206/DSC03775.jpg",
             "name": "China Town, San Francisco",
-            "caption": "I"
+            "caption": "I",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-020820206/DSC03795.jpg",
             "name": "China Town Alley",
-            "caption": "II"
+            "caption": "II",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-020820206/DSC03799.jpg",
             "name": "China Town Alley",
-            "caption": "III"
+            "caption": "III",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-020820206/DSC03789.jpg",
             "name": "The Musician's Mural, Columbus Avenue and Broadway",
-            "caption": ""
+            "caption": "",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Shorline_Lake/DSC06785.jpg",
             "name": "Great Blue Heron",
-            "caption": "Shorline Lake, Mountain View"
+            "caption": "Shorline Lake, Mountain View",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Shorline_Lake/DSC06851.jpg",
             "name": "Snowy Egret",
-            "caption": "Shorline Lake, Mountain View"
+            "caption": "Shorline Lake, Mountain View",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Shorline_Lake/DSC06967.jpg",
             "name": "Moments before the plunge! Forster's Tern",
-            "caption": "Shorline Lake, Mountain View"
+            "caption": "Shorline Lake, Mountain View",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Shorline_Lake/DSC07024.jpg",
             "name": "Great Egret",
-            "caption": "Shorline Lake, Mountain View"
+            "caption": "Shorline Lake, Mountain View",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Shorline_Lake/DSC07133.jpg",
             "name": "California Towhee",
-            "caption": "Shorline Lake, Mountain View"
+            "caption": "Shorline Lake, Mountain View",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Shorline_Lake/DSC07398.jpg",
             "name": "Black Skimmer Hunting Along the Water's Edge",
-            "caption": "Shorline Lake, Mountain View"
+            "caption": "Shorline Lake, Mountain View",
+            "tag": "bird"
         }
     ]
 }

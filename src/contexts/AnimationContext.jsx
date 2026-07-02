@@ -129,6 +129,10 @@ export const AnimationProvider = ({ children }) => {
         visible: {
             opacity: 1,
             scale: 1,
+            transition: {
+                duration: 0.28,
+                ease: [0.16, 1, 0.3, 1],
+            },
         },
         hover: {
             scale: 1.05,
@@ -139,7 +143,7 @@ export const AnimationProvider = ({ children }) => {
     };
 
     const getPhotoTransition = (index) => ({
-        delay: Math.random(),
+        delay: index * 0.025,
     });
 
     const value = {

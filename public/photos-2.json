@@ -3,72 +3,86 @@
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-04042026/DSC04869.jpg",
             "name": "Cherry Blossoms in the beautiful streets of SF",
-            "caption": ""
+            "caption": "",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-04042026/DSC04990.jpg",
             "name": "Graffiti of Pier 39",
-            "caption": ""
+            "caption": "",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-04042026/DSC04881-2.jpg",
             "name": "Pastel Row",
-            "caption": ""
+            "caption": "",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-04042026/DSC04829.jpg",
             "name": "Skyline of San Francisco",
-            "caption": "Beautiful Skyline of SF captured in Mission Dolores Park"
+            "caption": "Beautiful Skyline of SF captured in Mission Dolores Park",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-04042026/DSC05007.jpg",
             "name": "Seals of Pier 39",
-            "caption": ""
+            "caption": "",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-04042026/DSC04825.jpg",
             "name": "Peeking Skyline through Mission Dolores",
-            "caption": ""
+            "caption": "",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Point%20Reyes/DSC06246.jpg",
             "name": "Leaping Western Gull",
-            "caption": ""
+            "caption": "",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-04042026/DSC04921.jpg",
             "name": "Water Taxi of the Bay",
-            "caption": ""
+            "caption": "",
+            "tag": "streetphotograph"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Pinnacles/DSC06443.jpg",
             "name": "California Scrub-Jay in Pinnacles",
-            "caption": ""
+            "caption": "",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Lassen%20NP/DSC05659.jpg",
             "name": "Sunset at the Manzanita Lake",
-            "caption": ""
+            "caption": "",
+            "tag": "landscape"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Lassen%20NP/DSC05808.jpg",
             "name": "White headed Woodpecker",
-            "caption": ""
+            "caption": "",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Hghwy_396/DSC06620.jpg",
             "name": "Hot Creek Geologic Site, Inyo National Forest",
-            "caption": ""
+            "caption": "",
+            "tag": "landscape"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Point%20Reyes/DSC06351.jpg",
             "name": "A wild turkey",
-            "caption": ""
+            "caption": "",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/SF-020820206/DSC03767.jpg",
             "name": "Mission District, San Francisco",
-            "caption": ""
+            "caption": "",
+            "tag": "streetphotograph"
         }
     ]
 }

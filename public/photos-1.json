@@ -3,62 +3,74 @@
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/RedwoodNp-042026/DSC05531.jpg",
             "name": "Stare Down w/ Elk",
-            "caption": "Roosevelt Elk in Redwood National and State Parks, California"
+            "caption": "Roosevelt Elk in Redwood National and State Parks, California",
+            "tag": "landscape"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/RedwoodNp-042026/DSC05315.jpg",
             "name": "Cozy NorCal Spring",
-            "caption": "Roosevelt Elks crossing the road near Elk Prairie campground"
+            "caption": "Roosevelt Elks crossing the road near Elk Prairie campground",
+            "tag": "landscape"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/RedwoodNp-042026/DSC05480.jpg",
             "name": "Foggy NorCal",
-            "caption": "Elk Prairie Campgrouds, Redwood State Park"
+            "caption": "Elk Prairie Campgrouds, Redwood State Park",
+            "tag": "landscape"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Point%20Reyes/DSC03377-5.jpg",
             "name": "Red Tailed Hawk at Point Reyes",
-            "caption": ""
+            "caption": "",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/RedwoodNp-042026/DSC05370.jpg",
             "name": "Resting Seals",
-            "caption": "Seals near the Redwood National Park Coast"
+            "caption": "Seals near the Redwood National Park Coast",
+            "tag": "landscape"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Point%20Reyes/DSC06167-2.jpg",
             "name": "Soaring Osprey",
-            "caption": "Also know as Fish Hawk"
+            "caption": "Also know as Fish Hawk",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/RedwoodNp-042026/DSC05373.jpg",
             "name": "Skimming the Surface",
-            "caption": "Goosanders flying over Redwood National Park Coast"
+            "caption": "Goosanders flying over Redwood National Park Coast",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/RedwoodNp-042026/DSC05288.jpg",
             "name": "Blue meets Green",
-            "caption": "Blue Jay in Redwood Forest"
+            "caption": "Blue Jay in Redwood Forest",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Hghwy_396/DSC06512.jpg",
             "name": "American Avocet in Mono Lake",
-            "caption": ""
+            "caption": "",
+            "tag": "bird"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Hghwy_396/DSC06611.jpg",
             "name": "Lake Mary, Mammoth Lakes",
-            "caption": "I"
+            "caption": "I",
+            "tag": "landscape"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Hghwy_396/DSC06607.jpg",
             "name": "Lake Mary, Mammoth Lakes",
-            "caption": "II"
+            "caption": "II",
+            "tag": "landscape"
         },
         {
             "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Hghwy_396/DSC06564.jpg",
             "name": "Lake Mary, Mammoth Lakes",
-            "caption": "III"
+            "caption": "III",
+            "tag": "landscape"
         }
     ]
 }

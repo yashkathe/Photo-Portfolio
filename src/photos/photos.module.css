@@ -1,8 +1,74 @@
+.filterControls {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.filterButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.72rem 1rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 0.96rem;
+    line-height: 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.filterButton:hover {
+    transform: translateY(-1px);
+}
+
+.filterButtonActive {
+    color: #f7f1e6;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.filterButtonInactive {
+    color: rgba(255, 255, 255, 0.82);
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.filterButtonClose,
+.filterButtonPlus {
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.filterButtonEmoji {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.filterButtonClose {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.filterButtonPlus {
+    background: rgba(255, 255, 255, 0.08);
+}
+
 .photosGrid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 28px;
-    padding: 40px 20px;
+    padding: 26px 20px 40px;
     width: 100%;
     max-width: 1200px;
     margin-left: auto;
@@ -11,25 +77,40 @@
 }
 
 @media (min-width: 640px) {
+    .filterControls {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
     .photosGrid {
         grid-template-columns: repeat(2, 1fr);
-        padding: 40px 25px;
+        padding: 28px 25px 40px;
         gap: 32px;
     }
 }
 
 @media (min-width: 1024px) {
+    .filterControls {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
     .photosGrid {
         grid-template-columns: repeat(2, 1fr);
-        padding: 50px 30px;
+        padding: 30px 30px 50px;
         gap: 40px;
     }
 }
 
 @media (min-width: 1400px) {
+    .filterControls {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
     .photosGrid {
         grid-template-columns: repeat(3, 1fr);
-        padding: 50px 40px;
+        padding: 32px 40px 50px;
         gap: 44px;
         max-width: 1600px;
     }
@@ -68,4 +149,34 @@
 .sentinel {
     height: 100px;
     margin-top: 40px;
+}
+
+@media (max-width: 639px) {
+    .filterControls {
+        padding: 16px 16px 0;
+        gap: 8px;
+    }
+
+    .filterButton {
+        padding: 0.62rem 0.82rem;
+        font-size: 0.86rem;
+        gap: 8px;
+    }
+
+    .filterButtonClose,
+    .filterButtonPlus {
+        width: 16px;
+        height: 16px;
+        flex-basis: 16px;
+        font-size: 0.85rem;
+    }
+
+    .filterButtonEmoji {
+        font-size: 0.95rem;
+    }
+
+    .photosGrid {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
