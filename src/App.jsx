@@ -10,6 +10,7 @@ function App() {
     const location = useLocation();
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [mobileLayout, setMobileLayout] = useState('grid');
     const isGalleryPage = location.pathname === '/' || location.pathname === '/photos';
 
     useEffect(() => {
@@ -41,14 +42,24 @@ function App() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY, isGalleryPage]);
 
+    const toggleMobileLayout = () => {
+        setMobileLayout((currentLayout) => (currentLayout === 'grid' ? 'stack' : 'grid'))
+    }
+
     return (
         <React.Fragment>
             <div>
-                {isGalleryPage && <Header isVisible={isHeaderVisible} />}
+                {isGalleryPage && (
+                    <Header
+                        isVisible={isHeaderVisible}
+                        mobileLayout={mobileLayout}
+                        onToggleMobileLayout={toggleMobileLayout}
+                    />
+                )}
                 <div className={classes.content}>
                     <Routes>
-                        <Route path="/" element={<Photos/>} />
-                        <Route path="/photos" element={<Photos/>} />
+                        <Route path="/" element={<Photos mobileLayout={mobileLayout} />} />
+                        <Route path="/photos" element={<Photos mobileLayout={mobileLayout} />} />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </div>

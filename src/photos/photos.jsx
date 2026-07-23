@@ -8,7 +8,7 @@ import { getSeededPhotoOrder, shufflePhotos } from './photoOrder'
 
 const PHOTO_FILES = ['/photos-1.json', '/photos-2.json', '/photos-3.json']
 
-const Photos = () => {
+const Photos = ({ mobileLayout }) => {
     const [photos, setPhotos] = useState([])
     const [currentFileIndex, setCurrentFileIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false)
@@ -99,7 +99,7 @@ const Photos = () => {
 
     return (
         <React.Fragment>
-            <div className={classes.photosGrid}>
+            <div className={`${classes.photosGrid} ${mobileLayout === 'stack' ? classes.stackLayout : ''}`}>
                 {photos.map((photo, index) => (
                     <motion.div 
                         key={photo.link} 

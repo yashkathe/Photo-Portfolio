@@ -16,6 +16,12 @@
         gap: 10px;
         padding: 12px 12px;
     }
+
+    .photosGrid.stackLayout {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 18px;
+        padding: 18px 18px 28px;
+    }
 }
 
 @media (min-width: 640px) {
