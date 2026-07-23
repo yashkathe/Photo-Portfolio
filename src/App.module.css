@@ -8,7 +8,7 @@
 .content {
     position: relative;
     z-index: 1;
-    margin-top: 80px;
+    margin-top: 8vh;
     width: 100vw;
     min-height: calc(100vh - 80px);
     display: flex;
