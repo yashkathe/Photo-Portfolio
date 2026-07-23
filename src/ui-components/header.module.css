@@ -30,7 +30,7 @@
 
 .logo h1 {
     margin: 0;
-    font-size: 1.5vw;
+    font-size: clamp(1.25rem, 1.5vw, 1.5rem);
     font-weight: 500;
     letter-spacing: -0.02em;
 }

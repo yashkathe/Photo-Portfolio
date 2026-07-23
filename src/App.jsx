@@ -10,11 +10,14 @@ function App() {
     const location = useLocation();
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const isPhotosPage = location.pathname === '/photos';
-    const isHomePage = location.pathname === '/';
+    const isGalleryPage = location.pathname === '/' || location.pathname === '/photos';
 
     useEffect(() => {
-        if (!isPhotosPage) {
+        document.title = 'Yash Kathe | Photography Portfolio'
+    }, [])
+
+    useEffect(() => {
+        if (!isGalleryPage) {
             setIsHeaderVisible(true);
             return;
         }
@@ -36,16 +39,17 @@ function App() {
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY, isPhotosPage]);
+    }, [lastScrollY, isGalleryPage]);
 
     return (
         <React.Fragment>
             <div>
-                {!isHomePage && <Header isVisible={isHeaderVisible} />}
-                <div className={`${classes.content} ${isHomePage ? classes.contentNoHeader : ''}`}>
+                {isGalleryPage && <Header isVisible={isHeaderVisible} />}
+                <div className={classes.content}>
                     <Routes>
-                        <Route path="/" element={<Navigate to="/photos" replace />} />
+                        <Route path="/" element={<Photos/>} />
                         <Route path="/photos" element={<Photos/>} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </div>
             </div>
