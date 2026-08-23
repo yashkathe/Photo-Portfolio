@@ -41,6 +41,9 @@ function Timeline() {
           >
             <span className="timeline-location">{trip.location}</span>
             <span>{trip.date}</span>
+            <span className="timeline-photo-count">
+              {trip.photos.length} {trip.photos.length === 1 ? 'photo' : 'photos'}
+            </span>
           </Motion.time>
         </div>
       ))}

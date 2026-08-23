@@ -9,7 +9,7 @@
 }
 
 .site-brand {
-  color: #e8e5dd;
+  color: #d6d3ca;
   font-size: auto;
   line-height: 1;
   text-decoration: none;
@@ -28,7 +28,7 @@
 }
 
 .site-nav a:hover {
-  color: #e8e5dd;
+  color: #d6d3ca;
 }
 
 @media (max-width: 700px) {

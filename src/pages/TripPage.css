@@ -37,6 +37,15 @@
   width: 100%;
 }
 
+.trip-photo-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
 .trip-photo-grid p {
   color: #898a83;
   font-size: 0.875rem;

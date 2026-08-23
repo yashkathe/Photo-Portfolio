@@ -1,0 +1,33 @@
+.photo-modal {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: rgb(17 18 17 / 72%);
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+}
+
+.photo-modal-content {
+  max-width: min(90vw, 70rem);
+  max-height: 90vh;
+  cursor: default;
+}
+
+.photo-modal-content img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(90vh - 3rem);
+  border: 1rem solid #d6d3ca;
+  object-fit: contain;
+}
+
+.photo-modal-content p {
+  margin: 0.75rem 0 0;
+  color: #d6d3ca;
+  font-size: 0.875rem;
+  font-style: italic;
+  text-align: center;
+}
