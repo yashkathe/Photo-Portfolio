@@ -1,0 +1,15 @@
+.featured-page {
+  max-width: 38rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.featured-page h1 {
+  max-width: none;
+}
+
+.featured-page p {
+  margin-top: 2rem;
+  color: #898a83;
+  font-size: 0.875rem;
+}

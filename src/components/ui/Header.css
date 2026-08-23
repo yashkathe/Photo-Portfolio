@@ -8,11 +8,33 @@
   margin-bottom: 4rem;
 }
 
-.site-header a {
+.site-brand {
   color: #e8e5dd;
   font-size: 100cqh;
   line-height: 1;
   text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.site-nav a {
+  color: #898a83;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: #e8e5dd;
+}
+
+@media (max-width: 700px) {
+  .site-nav {
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 700px) {

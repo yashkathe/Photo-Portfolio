@@ -1,4 +1,5 @@
 import { motion as Motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
@@ -9,7 +10,11 @@ function Header() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: 'easeOut' }}
     >
-      <a href="/">Yash Kathe</a>
+      <Link className="site-brand" to="/">Yash Kathe</Link>
+      <nav className="site-nav" aria-label="Main navigation">
+        <Link to="/">Timeline</Link>
+        <Link to="/featured">Featured</Link>
+      </nav>
     </Motion.header>
   )
 }
