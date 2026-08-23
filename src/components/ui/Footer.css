@@ -1,0 +1,23 @@
+.site-footer {
+  max-width: 64rem;
+  margin: 8rem auto 0;
+  color: #898a83;
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
+.site-footer a {
+  color: #e8e5dd;
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    margin-top: 5rem;
+  }
+}

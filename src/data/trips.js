@@ -1,26 +1,46 @@
-import lisbonPhotos from './photos/lisbon.json'
-import reykjavikPhotos from './photos/reykjavik.json'
-import tokyoPhotos from './photos/tokyo.json'
+import lassenPhotos from './photos/lassen-volcanic-national-park-may-2026.json'
+import greatBasinPhotos from './photos/great-basin-national-park-august-2026.json'
+import sanFranciscoPhotos from './photos/san-francisco-august-2025.json'
+import sanFranciscoAprilPhotos from './photos/san-francisco-april-2026.json'
 
-const trips = [
+const tripData = [
   {
-    slug: 'tokyo',
-    location: 'Tokyo',
-    date: 'October 2026',
-    photos: tokyoPhotos,
+    title: 'Great Basin National Park',
+    location: 'White Pine County, Nevada, USA',
+    date: 'August 14 - August 16, 2026',
+    photos: greatBasinPhotos,
   },
   {
-    slug: 'reykjavik',
-    location: 'Reykjavik',
-    date: 'June 2026',
-    photos: reykjavikPhotos,
+    title: 'Lassen Volcanic National Park',
+    location: 'Lassen County, California, USA',
+    date: 'May 21 - May 22, 2026',
+    photos: lassenPhotos,
   },
   {
-    slug: 'lisbon',
-    location: 'Lisbon',
-    date: 'March 2026',
-    photos: lisbonPhotos,
+    title: 'San Francisco',
+    location: 'San Francisco, California, USA',
+    date: 'April 4, 2026',
+    photos: sanFranciscoAprilPhotos,
+  },
+  {
+    title: 'San Francisco',
+    location: 'San Francisco, California, USA',
+    date: 'August 2, 2025',
+    photos: sanFranciscoPhotos,
   },
 ]
+
+// Generate a unique URL slug from each trip title and date.
+function createTripSlug(trip) {
+  return `${trip.title} ${trip.date}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+const trips = tripData.map((trip) => ({
+  ...trip,
+  slug: createTripSlug(trip),
+}))
 
 export default trips

@@ -1,5 +1,6 @@
 import { motion as Motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import './Trip.css'
 
 const tripRevealVariants = {
@@ -10,24 +11,15 @@ const tripRevealVariants = {
 const tripRevealViewport = { once: true, amount: 0.3 }
 const tripRevealTransition = { duration: 0.6, ease: 'easeOut' }
 
-const tripVignetteVariants = {
-  inactive: { opacity: 0 },
-  hidden: { opacity: 0 },
-  visible: { opacity: 0 },
-  active: { opacity: 0.65 },
-}
+const tripPhotoRest = { opacity: 0.65, filter: 'blur(0px)' }
+const tripPhotoHover = { opacity: 0.6, filter: 'blur(4px)' }
+const tripPhotoTransition = { duration: 0.7, ease: 'easeOut' }
 
-const tripDetailsVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-  active: { opacity: 1 },
-}
+const tripCopyRest = { top: '90%', y: '-50%', scale: 1 }
+const tripCopyHover = { top: '50%', y: '-50%', scale: 1.1 }
 
-const tripCopyVariants = {
-  hidden: { top: '90%', x: 0, y: '-50%', scale: 1 },
-  visible: { top: '90%', x: 0, y: '-50%', scale: 1 },
-  active: { top: '50%', x: 0, y: '-50%', scale: 1.25 },
-}
+const tripDetailsRest = { opacity: 1 }
+const tripDetailsHover = { opacity: 1 }
 
 const tripDetailsTransition = {
   duration: 0.45,
@@ -39,7 +31,9 @@ const tripCopyTransition = {
   ease: [0.22, 1, 0.36, 1],
 }
 
-function Trip({ slug, location, photo }) {
+function Trip({ slug, title, location, photo }) {
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
     <Link className="trip-link" to={`/trips/${slug}`}>
       <Motion.article
@@ -49,30 +43,36 @@ function Trip({ slug, location, photo }) {
         whileInView="visible"
         viewport={tripRevealViewport}
         transition={tripRevealTransition}
-        whileHover="active"
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
       >
         {photo ? (
-          <img className="trip-photo" src={photo} alt={location} />
+          <Motion.img
+            className="trip-photo"
+            src={photo}
+            alt={`${title} in ${location}`}
+            animate={isHovered ? tripPhotoHover : tripPhotoRest}
+            transition={tripPhotoTransition}
+          />
         ) : (
-          <div className="trip-photo" aria-hidden="true" />
+          <Motion.div
+            className="trip-photo"
+            aria-hidden="true"
+            animate={isHovered ? tripPhotoHover : tripPhotoRest}
+            transition={tripPhotoTransition}
+          />
         )}
         <Motion.div
-          className="trip-vignette"
-          variants={tripVignetteVariants}
-          transition={tripDetailsTransition}
-          aria-hidden="true"
-        />
-        <Motion.div
           className="trip-details"
-          variants={tripDetailsVariants}
+          animate={isHovered ? tripDetailsHover : tripDetailsRest}
           transition={tripDetailsTransition}
         >
           <Motion.div
             className="trip-copy"
-            variants={tripCopyVariants}
+            animate={isHovered ? tripCopyHover : tripCopyRest}
             transition={tripCopyTransition}
           >
-            <h2>{location}</h2>
+            <h2>{title}</h2>
           </Motion.div>
         </Motion.div>
       </Motion.article>

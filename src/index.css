@@ -93,11 +93,18 @@ h1 {
 }
 
 .timeline-date {
+  display: grid;
+  gap: 0.25rem;
   grid-column: 2;
   justify-self: start;
   color: #898a83;
   font-size: 0.875rem;
   grid-row: 1;
+}
+
+.timeline-location {
+  color: #e8e5dd;
+  font-size: 1rem;
 }
 
 .timeline-marker {

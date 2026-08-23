@@ -30,21 +30,9 @@
   background: #292a27;
 }
 
-.trip-vignette {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    rgb(10 11 10 / 0%) 35%,
-    rgb(10 11 10 / 78%) 100%
-  );
-}
-
 .trip-details {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
@@ -53,17 +41,27 @@
   align-items: center;
   justify-content: center;
   padding: 0.75rem;
+  pointer-events: none;
   text-align: center;
-  background: transparent;
+  background: linear-gradient(
+    to top,
+    rgb(10 11 10 / 72%) 0%,
+    rgb(10 11 10 / 42%) 24%,
+    rgb(10 11 10 / 0%) 62%
+  );
   color: #e8e5dd;
 }
 
 .trip-copy {
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: 1rem;
+  width: calc(100% - 2rem);
+  box-sizing: border-box;
   margin: 0;
   color: #e8e5dd;
+  overflow-wrap: anywhere;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .trip-copy h2 {

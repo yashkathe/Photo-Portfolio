@@ -4,6 +4,7 @@ import { motion as Motion, useScroll } from 'framer-motion'
 import { Route, Routes } from 'react-router-dom'
 import Trip from './components/Trip'
 import Header from './components/ui/Header'
+import Footer from './components/ui/Footer'
 import Featured from './pages/Featured'
 import TripPage from './pages/TripPage'
 import trips from './data/trips'
@@ -38,7 +39,8 @@ function Timeline() {
             viewport={dateViewport}
             transition={dateTransition}
           >
-            {trip.date}
+            <span className="timeline-location">{trip.location}</span>
+            <span>{trip.date}</span>
           </Motion.time>
         </div>
       ))}
@@ -56,6 +58,8 @@ function App() {
         <Route path="/featured" element={<Featured />} />
         <Route path="/trips/:slug" element={<TripPage />} />
       </Routes>
+
+      <Footer />
     </main>
   )
 }

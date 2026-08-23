@@ -14,7 +14,7 @@ function TripPage() {
     <section className="trip-page">
       <Link className="trip-page-back" to="/">Back to timeline</Link>
       <header className="trip-page-header">
-        <h1>{trip.location}</h1>
+        <h1>{trip.title}</h1>
         <time>{trip.date}</time>
       </header>
       <div className="trip-photo-grid">
