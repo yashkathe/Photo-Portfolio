@@ -1,17 +1,6 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - "package.json"
-      - "package-lock.json"
-      - "index.html"
-      - "vite.config.js"
-      - "public/**"
-      - "src/**"
-      - ".github/workflows/deploy.yaml"
   workflow_dispatch:
 
 permissions:
