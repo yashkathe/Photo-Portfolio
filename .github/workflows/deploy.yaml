@@ -5,8 +5,14 @@ on:
     branches:
       - master
     paths:
-      - "package.json"   # deploy only if version changes
-  workflow_dispatch:      # manual button
+      - "package.json"
+      - "package-lock.json"
+      - "index.html"
+      - "vite.config.js"
+      - "public/**"
+      - "src/**"
+      - ".github/workflows/deploy.yaml"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -28,7 +34,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
 
       - name: Install deps
