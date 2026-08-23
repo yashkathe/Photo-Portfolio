@@ -1,0 +1,59 @@
+.trip-page {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.trip-page-back {
+  color: #898a83;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.trip-page-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.trip-page-header h1 {
+  margin: 0;
+}
+
+.trip-page-header time {
+  color: #898a83;
+  font-size: 0.875rem;
+}
+
+.trip-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.trip-photo-grid img {
+  display: block;
+  width: 100%;
+}
+
+.trip-photo-grid p {
+  color: #898a83;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 700px) {
+  .trip-page-header {
+    display: block;
+    margin: 3rem 0;
+  }
+
+  .trip-page-header time {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .trip-photo-grid {
+    grid-template-columns: 1fr;
+  }
+}

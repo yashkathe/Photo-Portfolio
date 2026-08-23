@@ -1,14 +1,50 @@
 import './index.css'
+import { useRef } from 'react'
+import { motion as Motion, useScroll } from 'framer-motion'
 import { Route, Routes } from 'react-router-dom'
 import Trip from './components/Trip'
 import Header from './components/ui/Header'
 import Featured from './pages/Featured'
+import TripPage from './pages/TripPage'
+import trips from './data/trips'
 
-const trips = [
-  { location: 'Tokyo', duration: '7 days', date: 'October 2026' },
-  { location: 'Reykjavik', duration: '5 days', date: 'June 2026' },
-  { location: 'Lisbon', duration: '4 days', date: 'March 2026' },
-]
+const dateHidden = { opacity: 0, y: 12 }
+const dateVisible = { opacity: 1, y: 0 }
+const dateViewport = { once: true, amount: 0.3 }
+const dateTransition = { duration: 0.5, ease: 'easeOut', delay: 0.15 }
+
+function Timeline() {
+  const timelineRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ['start 80%', 'end 20%'],
+  })
+  const progressStyle = {
+    scaleY: scrollYProgress,
+    transformOrigin: 'top',
+  }
+
+  return (
+    <section ref={timelineRef} className="timeline" aria-label="Travel timeline">
+      <Motion.div className="timeline-progress" style={progressStyle} aria-hidden="true" />
+      {trips.map((trip) => (
+        <div className="timeline-entry" key={trip.location}>
+          <span className="timeline-marker" aria-hidden="true" />
+          <Trip {...trip} photo={trip.photos[0]?.link} />
+          <Motion.time
+            className="timeline-date"
+            initial={dateHidden}
+            whileInView={dateVisible}
+            viewport={dateViewport}
+            transition={dateTransition}
+          >
+            {trip.date}
+          </Motion.time>
+        </div>
+      ))}
+    </section>
+  )
+}
 
 function App() {
   return (
@@ -16,19 +52,9 @@ function App() {
       <Header />
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <section className="timeline" aria-label="Travel timeline">
-              {trips.map((trip) => (
-                <div className="timeline-entry" key={trip.location}>
-                  <Trip {...trip} />
-                </div>
-              ))}
-            </section>
-          }
-        />
+        <Route path="/" element={<Timeline />} />
         <Route path="/featured" element={<Featured />} />
+        <Route path="/trips/:slug" element={<TripPage />} />
       </Routes>
     </main>
   )
