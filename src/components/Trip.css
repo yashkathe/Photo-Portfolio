@@ -1,0 +1,51 @@
+.trip {
+  position: relative;
+  aspect-ratio: 1;
+  width: min(100%, 20rem);
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #292a27;
+}
+
+.trip-photo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background: #292a27;
+}
+
+.trip-details {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  align-content: end;
+  justify-items: center;
+  min-height: 30%;
+  padding: 0.75rem;
+  text-align: center;
+  background: linear-gradient(
+    to top,
+    rgb(10 11 10 / 86%) 0%,
+    rgb(10 11 10 / 50%) 55%,
+    rgb(10 11 10 / 0%) 100%
+  );
+  color: #e8e5dd;
+}
+
+.trip-details h2,
+.trip-details p {
+  margin: 0;
+}
+
+.trip-details h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.trip-details p {
+  margin-top: 0.25rem;
+  color: #b4b3ac;
+  font-size: 0.875rem;
+}

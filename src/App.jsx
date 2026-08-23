@@ -1,71 +1,27 @@
-import React, { useState, useEffect } from 'react'
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import './index.css'
+import Trip from './components/Trip'
+import Header from './components/ui/Header'
 
-import classes from './App.module.css'
-
-import Header from './ui-components/header'
-import Photos from './photos/photos'
+const trips = [
+  { location: 'Tokyo', duration: '7 days', date: 'October 2026' },
+  { location: 'Reykjavik', duration: '5 days', date: 'June 2026' },
+  { location: 'Lisbon', duration: '4 days', date: 'March 2026' },
+]
 
 function App() {
-    const location = useLocation();
-    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-    const [mobileLayout, setMobileLayout] = useState('grid');
-    const isGalleryPage = location.pathname === '/' || location.pathname === '/photos';
+  return (
+    <main className="shell">
+      <Header />
 
-    useEffect(() => {
-        document.title = 'Yash Kathe | Photography Portfolio'
-    }, [])
-
-    useEffect(() => {
-        if (!isGalleryPage) {
-            setIsHeaderVisible(true);
-            return;
-        }
-
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            
-            // Show header when at top 
-            if (currentScrollY < 20) {
-                setIsHeaderVisible(true);
-            } 
-            // Hide header when scrolling down
-            else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                setIsHeaderVisible(false);
-            }  
-            
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY, isGalleryPage]);
-
-    const toggleMobileLayout = () => {
-        setMobileLayout((currentLayout) => (currentLayout === 'grid' ? 'stack' : 'grid'))
-    }
-
-    return (
-        <React.Fragment>
-            <div>
-                {isGalleryPage && (
-                    <Header
-                        isVisible={isHeaderVisible}
-                        mobileLayout={mobileLayout}
-                        onToggleMobileLayout={toggleMobileLayout}
-                    />
-                )}
-                <div className={classes.content}>
-                    <Routes>
-                        <Route path="/" element={<Photos mobileLayout={mobileLayout} />} />
-                        <Route path="/photos" element={<Photos mobileLayout={mobileLayout} />} />
-                        <Route path="*" element={<Navigate to="/" replace />} />
-                    </Routes>
-                </div>
-            </div>
-        </React.Fragment>
-    )
+      <section className="timeline" aria-label="Travel timeline">
+        {trips.map((trip) => (
+          <div className="timeline-entry" key={trip.location}>
+            <Trip {...trip} />
+          </div>
+        ))}
+      </section>
+    </main>
+  )
 }
 
 export default App
