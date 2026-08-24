@@ -15,10 +15,10 @@ function Header() {
       transition={headerTransition}
     >
       <Link className="site-brand" to="/">Yash Kathe</Link>
-      <nav className="site-nav" aria-label="Main navigation">
+      {/* <nav className="site-nav" aria-label="Main navigation">
         <Link to="/">Timeline</Link>
         <Link to="/featured">Featured</Link>
-      </nav>
+      </nav> */}
     </Motion.header>
   )
 }

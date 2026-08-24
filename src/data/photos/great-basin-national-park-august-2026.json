@@ -15,7 +15,7 @@
     "category": "bird"
   },
   {
-    "title": "Black Phoebe - Flapping Its Wings",
+    "title": "Black Phoebe - Ready for Flight",
     "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Great_Basin_Np_082026/DSC09868.jpg",
     "category": "bird"
   },
@@ -23,6 +23,11 @@
     "title": "Mountain Chickadee - Upside Down",
     "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Great_Basin_Np_082026/DSC09925.jpg",
     "category": "bird"
+  },
+  {
+    "title": "Blue Before the Storm",
+    "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Great_Basin_Np_082026/DSC09701.jpg",
+    "category": "landscape"
   },
   {
     "title": "Smiling Mule Deer",
@@ -33,10 +38,5 @@
     "title": "Two Mule Deer",
     "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Great_Basin_Np_082026/DSC00015.jpg",
     "category": "animal"
-  },
-  {
-    "title": "Blue Before the Storm",
-    "link": "https://pub-696d76d9ea1a4ef69a0e3a8681e65c4c.r2.dev/Great_Basin_Np_082026/DSC09701.jpg",
-    "category": "landscape"
   }
 ]
