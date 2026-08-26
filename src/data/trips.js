@@ -2,6 +2,8 @@ import lassenPhotos from './photos/lassen-volcanic-national-park-may-2026.json'
 import greatBasinPhotos from './photos/great-basin-national-park-august-2026.json'
 import hw50Photos from './photos/hw-50-august-2026.json'
 import redwoodPhotos from './photos/redwood-national-park-july-2026.json'
+import pinnaclesPhotos from './photos/pinnacles-national-park-may-2026.json'
+import sequoiaPhotos from './photos/sequoia-national-park-july-2026.json'
 import pointReyesPhotos from './photos/point-reyes-january-2026.json'
 import sanFranciscoPhotos from './photos/san-francisco-august-2025.json'
 import sanFranciscoAprilPhotos from './photos/san-francisco-april-2026.json'
@@ -24,6 +26,18 @@ const tripData = [
     location: 'Del Norte and Humboldt Counties, California, USA',
     date: 'July 18, 2026',
     photos: redwoodPhotos,
+  },
+  {
+    title: 'Sequoia National Park',
+    location: 'Tulare County, California, USA',
+    date: 'July 3, 2026',
+    photos: sequoiaPhotos,
+  },
+  {
+    title: 'Pinnacles National Park',
+    location: 'San Benito and Monterey County, California, USA',
+    date: 'May 31, 2026',
+    photos: pinnaclesPhotos,
   },
   {
     title: 'Lassen Volcanic National Park',
