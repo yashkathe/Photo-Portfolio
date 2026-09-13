@@ -6,6 +6,7 @@ import Trip from './components/Trip'
 import Header from './components/ui/Header'
 import Footer from './components/ui/Footer'
 import Featured from './pages/Featured'
+import Gallery from './pages/Gallery'
 import TripPage from './pages/TripPage'
 import trips from './data/trips'
 
@@ -29,7 +30,7 @@ function Timeline() {
     <section ref={timelineRef} className="timeline" aria-label="Travel timeline">
       <Motion.div className="timeline-progress" style={progressStyle} aria-hidden="true" />
       {trips.map((trip) => (
-        <div className="timeline-entry" key={trip.location}>
+        <div className="timeline-entry" key={trip.slug}>
           <span className="timeline-marker" aria-hidden="true" />
           <Trip {...trip} photo={trip.photos[0]?.link} />
           <Motion.time
@@ -58,6 +59,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Timeline />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/featured" element={<Featured />} />
         <Route path="/trips/:slug" element={<TripPage />} />
       </Routes>
