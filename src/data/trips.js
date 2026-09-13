@@ -7,8 +7,22 @@ import sequoiaPhotos from './photos/sequoia-national-park-july-2026.json'
 import pointReyesPhotos from './photos/point-reyes-january-2026.json'
 import sanFranciscoPhotos from './photos/san-francisco-august-2025.json'
 import sanFranciscoAprilPhotos from './photos/san-francisco-april-2026.json'
+import pointReyes092026 from './photos/point-reyes-september-2026.json'
+import anoNuevoPhotos from './photos/ano-nuevo-state-park-september-2026.json'
 
 const tripData = [
+  {
+    title: 'Ano Nuevo State Park (Solo Hiking)',
+    location: 'Santa Cruz County, California, USA',
+    date: 'September 06, 2026',
+    photos: anoNuevoPhotos,
+  },
+  {
+    title: 'Abbotts Lagoon & Muddy Hollow (Solo Hiking)',
+    location: 'Point Reyes, Marin County, California, USA',
+    date: 'September 05, 2026',
+    photos: pointReyes092026,
+  },
   {
     title: 'Great Basin National Park',
     location: 'White Pine County, Nevada, USA',
