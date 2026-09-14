@@ -1,0 +1,122 @@
+.home-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+.home-page {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  align-items: end;
+  max-width: 88rem;
+  margin: 0 auto;
+  width: 100%;
+  isolation: isolate;
+  margin-bottom: 2vh;
+  box-shadow: inset 0 0 0 1px var(--home-photo-color), inset 0 0 3rem rgb(from var(--home-photo-color) r g b / 0.12);
+  transition: box-shadow 1.4s ease-in-out;
+}
+
+.home-image,
+.home-overlay {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home-image {
+  object-fit: cover;
+  opacity: 0.62;
+}
+
+.home-overlay {
+  z-index: -1;
+  background: rgb(17 18 17 / 0.35);
+}
+
+.home-content {
+  max-width: 42rem;
+  padding: clamp(2rem, 7vw, 6rem);
+}
+
+.home-content .eyebrow {
+  color: #d6d3ca;
+  font-weight: 600;
+  -webkit-text-stroke: 0.1px rgb(17 18 17 / 0.4);
+  text-shadow: 0 1px 2px rgb(17 18 17 / 0.8), 0 1px 10px rgb(17 18 17 / 0.7);
+}
+
+.home-content h1 {
+  max-width: none;
+  margin-bottom: 1.5rem;
+  -webkit-text-stroke: 0.15px rgb(17 18 17 / 0.5);
+  text-shadow: 0 1px 2px rgb(17 18 17 / 0.75), 0 2px 20px rgb(17 18 17 / 0.5);
+}
+
+.home-description {
+  margin: 0;
+  color: #d6d3ca;
+  font-size: 1.1rem;
+  -webkit-text-stroke: 0.1px rgb(17 18 17 / 0.35);
+  text-shadow: 0 1px 2px rgb(17 18 17 / 0.8), 0 1px 12px rgb(17 18 17 / 0.75);
+}
+
+.home-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.home-actions a {
+  color: #d6d3ca;
+  font-size: 0.875rem;
+  text-decoration: none;
+  -webkit-text-stroke: 0.1px rgb(17 18 17 / 0.35);
+  text-shadow: 0 1px 2px rgb(17 18 17 / 0.8), 0 1px 12px rgb(17 18 17 / 0.75);
+}
+
+.home-actions a::after {
+  display: inline-block;
+  margin-left: 0.5rem;
+  content: '↗';
+  transition: transform 0.25s ease;
+}
+
+.home-actions a:hover::after,
+.home-actions a:focus-visible::after {
+  transform: translate(0.15rem, -0.15rem);
+}
+
+.home-caption {
+  margin: 4rem 0 0;
+  color: #b0afa8;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 2px rgb(17 18 17 / 0.8);
+}
+
+@media (max-width: 700px) {
+  .home-page {
+    min-height: 0;
+  }
+
+  .home-content {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .home-actions {
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .home-caption {
+    margin-top: 3rem;
+  }
+}

@@ -1,12 +1,13 @@
 import './index.css'
 import { useRef } from 'react'
 import { motion as Motion, useScroll } from 'framer-motion'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Trip from './components/Trip'
 import Header from './components/ui/Header'
 import Footer from './components/ui/Footer'
 import Featured from './pages/Featured'
 import Gallery from './pages/Gallery'
+import Home from './pages/Home'
 import TripPage from './pages/TripPage'
 import trips from './data/trips'
 
@@ -53,18 +54,22 @@ function Timeline() {
 }
 
 function App() {
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+
   return (
-    <main className="shell">
+    <main className={`shell ${isHome ? 'home-shell' : ''}`}>
       <Header />
 
       <Routes>
-        <Route path="/" element={<Timeline />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/trips" element={<Timeline />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/featured" element={<Featured />} />
         <Route path="/trips/:slug" element={<TripPage />} />
       </Routes>
 
-      <Footer />
+      {!isHome && <Footer />}
     </main>
   )
 }

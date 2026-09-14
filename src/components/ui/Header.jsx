@@ -16,6 +16,7 @@ function Header() {
     >
       <Link className="site-brand" to="/">Yash Kathe</Link>
       <nav className="site-nav" aria-label="Main navigation">
+        <Link to="/trips">Trips</Link>
         <Link to="/gallery">Gallery</Link>
       </nav>
     </Motion.header>
