@@ -55,9 +55,10 @@
   opacity: 1;
 }
 
-.gallery-filters button.is-included {
-  border-color: #898a83;
-  color: #d6d3ca;
+.gallery-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .gallery-filter-mark {
@@ -65,6 +66,16 @@
   margin-left: 0.35rem;
   color: #898a83;
   font-size: 0.75rem;
+}
+
+.gallery-filter-children {
+  display: flex;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.gallery-filter-children button {
+  padding: 0.65rem 1rem;
 }
 
 .gallery-grid {

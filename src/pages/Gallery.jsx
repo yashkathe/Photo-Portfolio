@@ -1,11 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion as Motion } from 'framer-motion'
 import PhotoModal from '../components/PhotoModal'
-import {
-  isFilterIncluded,
-  matchesPhotoFilter,
-  photoFilters,
-} from '../data/photoFilters'
+import { matchesPhotoFilter, photoFilters } from '../data/photoFilters'
 import trips from '../data/trips'
 import './Gallery.css'
 
@@ -19,6 +15,7 @@ const allPhotos = trips.flatMap((trip) =>
 
 function Gallery() {
   const [activeFilter, setActiveFilter] = useState('all')
+  const [expandedFilter, setExpandedFilter] = useState(null)
   const [selectedPhoto, setSelectedPhoto] = useState(null)
 
   const visiblePhotos = allPhotos.filter((photo) => matchesPhotoFilter(photo, activeFilter))
@@ -37,43 +34,45 @@ function Gallery() {
 
       <div className="gallery-filters" role="group" aria-label="Filter photos by category">
         {photoFilters.map((filter) => (
-          <Motion.button
-            animate={{
-              opacity: activeFilter === filter.value || isFilterIncluded(activeFilter, filter.value)
-                ? 1
-                : 0.7,
-              scale: isFilterIncluded(activeFilter, filter.value) ? 1.03 : 1,
-            }}
-            className={`${activeFilter === filter.value ? 'is-active' : ''} ${
-              isFilterIncluded(activeFilter, filter.value) ? 'is-included' : ''
-            }`}
-            key={filter.value}
-            title={
-              isFilterIncluded(activeFilter, filter.value)
-                ? `${filter.label} included in ${
-                    photoFilters.find((item) => item.value === activeFilter)?.label
-                  }`
-                : undefined
-            }
-            type="button"
-            onClick={() => setActiveFilter(filter.value)}
-            aria-pressed={activeFilter === filter.value}
-            aria-label={
-              isFilterIncluded(activeFilter, filter.value)
-                ? `${filter.label}, included in the ${
-                    photoFilters.find((item) => item.value === activeFilter)?.label
-                  } filter`
-                : filter.label
-            }
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-          >
-            {filter.label}
-            {isFilterIncluded(activeFilter, filter.value) && (
-              <span className="gallery-filter-mark" aria-hidden="true">
-                +
-              </span>
-            )}
-          </Motion.button>
+          <div className="gallery-filter-group" key={filter.value}>
+            <Motion.button
+              animate={{ opacity: activeFilter === filter.value ? 1 : 0.7 }}
+              className={activeFilter === filter.value ? 'is-active' : ''}
+              type="button"
+              onClick={() => {
+                setActiveFilter(filter.value)
+                setExpandedFilter(filter.children ? filter.value : null)
+              }}
+              aria-pressed={activeFilter === filter.value}
+              aria-expanded={filter.children ? expandedFilter === filter.value : undefined}
+            >
+              {filter.label}
+              {filter.children && <span className="gallery-filter-mark">+</span>}
+            </Motion.button>
+            <AnimatePresence initial={false}>
+              {filter.children && expandedFilter === filter.value && (
+                <Motion.div
+                  className="gallery-filter-children"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.28, ease: 'easeInOut' }}
+                >
+                  {filter.children.map((child) => (
+                    <button
+                      className={activeFilter === child.value ? 'is-active' : ''}
+                      key={child.value}
+                      type="button"
+                      onClick={() => setActiveFilter(child.value)}
+                      aria-pressed={activeFilter === child.value}
+                    >
+                      {child.label}
+                    </button>
+                  ))}
+                </Motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         ))}
       </div>
 
