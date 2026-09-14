@@ -7,18 +7,19 @@ import sequoiaPhotos from './photos/sequoia-national-park-july-2026.json'
 import pointReyesPhotos from './photos/point-reyes-january-2026.json'
 import sanFranciscoPhotos from './photos/san-francisco-august-2025.json'
 import sanFranciscoAprilPhotos from './photos/san-francisco-april-2026.json'
+import sanFranciscoFebruaryPhotos from './photos/san-francisco-february-2026.json'
 import pointReyes092026 from './photos/point-reyes-september-2026.json'
 import anoNuevoPhotos from './photos/ano-nuevo-state-park-september-2026.json'
 
 const tripData = [
   {
-    title: 'Ano Nuevo State Park (Solo Hiking)',
+    title: 'Ano Nuevo State Park',
     location: 'Santa Cruz County, California, USA',
     date: 'September 06, 2026',
     photos: anoNuevoPhotos,
   },
   {
-    title: 'Abbotts Lagoon & Muddy Hollow (Solo Hiking)',
+    title: 'Abbotts Lagoon & Muddy Hollow',
     location: 'Point Reyes, Marin County, California, USA',
     date: 'September 05, 2026',
     photos: pointReyes092026,
@@ -64,6 +65,12 @@ const tripData = [
     location: 'San Francisco, California, USA',
     date: 'April 4, 2026',
     photos: sanFranciscoAprilPhotos,
+  },
+  {
+    title: 'San Francisco',
+    location: 'San Francisco, California, USA',
+    date: 'February 12, 2026',
+    photos: sanFranciscoFebruaryPhotos,
   },
   {
     title: 'Point Reyes National Seashore',
