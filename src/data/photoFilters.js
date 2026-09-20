@@ -10,7 +10,7 @@ export const photoFilters = [
     ],
   },
   {
-    label: 'Views',
+    label: 'Landscape',
     value: 'views',
     categories: ['landscape', 'street', 'architecture'],
     children: [

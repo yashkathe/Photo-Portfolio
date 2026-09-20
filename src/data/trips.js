@@ -10,8 +10,15 @@ import sanFranciscoAprilPhotos from './photos/san-francisco-april-2026.json'
 import sanFranciscoFebruaryPhotos from './photos/san-francisco-february-2026.json'
 import pointReyes092026 from './photos/point-reyes-september-2026.json'
 import anoNuevoPhotos from './photos/ano-nuevo-state-park-september-2026.json'
+import goldenGateBridgePhotos from './photos/golden-gate-bridge-september-2026.json'
 
 const tripData = [
+  {
+    title: 'Golden Gate Park',
+    location: 'San Francisco, California, USA',
+    date: 'September 19, 2026',
+    photos: goldenGateBridgePhotos,
+  },
   {
     title: 'Ano Nuevo State Park',
     location: 'Santa Cruz County, California, USA',
