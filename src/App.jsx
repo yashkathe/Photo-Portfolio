@@ -1,7 +1,7 @@
 import './index.css'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion as Motion, useScroll } from 'framer-motion'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Trip from './components/Trip'
 import Header from './components/ui/Header'
 import Footer from './components/ui/Footer'
@@ -54,8 +54,17 @@ function Timeline() {
 }
 
 function App() {
-  const { pathname } = useLocation()
+  const { pathname, search } = useLocation()
+  const navigate = useNavigate()
   const isHome = pathname === '/'
+
+  useEffect(() => {
+    const fallbackPath = new URLSearchParams(search).get('p')
+
+    if (fallbackPath?.startsWith('/')) {
+      navigate(fallbackPath, { replace: true })
+    }
+  }, [navigate, search])
 
   return (
     <main className={`shell ${isHome ? 'home-shell' : ''}`}>
