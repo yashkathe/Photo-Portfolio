@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion as Motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import trips from '../data/trips'
 import './Home.css'
 
@@ -8,9 +7,29 @@ const slideshowPhotos = trips
   .flatMap((trip) => trip.photos)
   .filter((photo) => photo.category === 'landscape')
 
+function formatTimeSince(timestamp) {
+  const minutes = Math.max(0, Math.floor((Date.now() - timestamp) / 60000))
+  const days = Math.floor(minutes / 1440)
+  const hours = Math.floor((minutes % 1440) / 60)
+  const remainingMinutes = minutes % 60
+
+  if (days > 0) {
+    return `${days}d ${hours}h ago`
+  }
+
+  if (hours > 0) {
+    return `${hours}h ${remainingMinutes}m ago`
+  }
+
+  return `${remainingMinutes}m ago`
+}
+
 function Home() {
   const [photoIndex, setPhotoIndex] = useState(() =>
     Math.floor(Math.random() * slideshowPhotos.length),
+  )
+  const [lastUpdatedLabel, setLastUpdatedLabel] = useState(() =>
+    formatTimeSince(new Date(__LAST_UPDATED__).getTime()),
   )
   const currentPhoto = slideshowPhotos[photoIndex]
 
@@ -22,6 +41,14 @@ function Home() {
     const interval = window.setInterval(() => {
       setPhotoIndex((currentIndex) => (currentIndex + 1) % slideshowPhotos.length)
     }, 5000)
+
+    return () => window.clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setLastUpdatedLabel(formatTimeSince(new Date(__LAST_UPDATED__).getTime()))
+    }, 60000)
 
     return () => window.clearInterval(interval)
   }, [])
@@ -49,13 +76,13 @@ function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <p className="eyebrow">My photographic journal</p>
         <h1>Yash Kathe</h1>
         {/* <p className="home-description">From the road, coast, and wilderness.</p> */}
-        <nav className="home-actions" aria-label="Explore photography">
+        {/* <nav className="home-actions" aria-label="Explore photography">
           <Link to="/trips">Explore trips</Link>
           <Link to="/gallery">View gallery</Link>
-        </nav>
+        </nav> */}
+        <p className="home-updated">Last updated website: {lastUpdatedLabel}</p>
         {currentPhoto && <p className="home-caption">{currentPhoto.title}</p>}
       </Motion.div>
     </section>
