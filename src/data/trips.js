@@ -11,6 +11,7 @@ import sanFranciscoFebruaryPhotos from './photos/san-francisco-february-2026.jso
 import pointReyes092026 from './photos/point-reyes-september-2026.json'
 import anoNuevoPhotos from './photos/ano-nuevo-state-park-september-2026.json'
 import goldenGateBridgePhotos from './photos/golden-gate-bridge-september-2026.json'
+import shorelineLakePhotos from './photos/shoreline-lake-june-2026.json'
 
 const tripData = [
   {
@@ -48,6 +49,12 @@ const tripData = [
     location: 'Del Norte and Humboldt Counties, California, USA',
     date: 'July 18, 2026',
     photos: redwoodPhotos,
+  },
+  {
+    title: 'Shoreline Lake',
+    location: 'Mountain View, California, USA',
+    date: 'June 2026',
+    photos: shorelineLakePhotos,
   },
   {
     title: 'Sequoia National Park',
