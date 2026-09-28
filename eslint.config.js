@@ -17,7 +17,7 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: {
         ...globals.browser,
-        __LAST_UPDATED__: 'readonly',
+        __CHANGE_LOG__: 'readonly',
       },
       parserOptions: {
         ecmaVersion: 'latest',

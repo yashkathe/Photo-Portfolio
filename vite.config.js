@@ -2,7 +2,16 @@ import { execSync } from 'node:child_process'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const lastUpdated = execSync('git log -1 --format=%cI').toString().trim()
+const changeLog = execSync('git log -3 --format=%H%x09%cI%x09%s')
+  .toString()
+  .trim()
+  .split('\n')
+  .filter(Boolean)
+  .map((entry) => {
+    const [hash, date, ...messageParts] = entry.split('\t')
+
+    return { hash, date, message: messageParts.join('\t') }
+  })
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -15,6 +24,6 @@ export default defineConfig({
   ],
   base: '/',
   define: {
-    __LAST_UPDATED__: JSON.stringify(lastUpdated),
+    __CHANGE_LOG__: JSON.stringify(changeLog),
   },
 })
