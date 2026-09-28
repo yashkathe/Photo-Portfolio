@@ -8,6 +8,7 @@ import pointReyesPhotos from './photos/point-reyes-january-2026.json'
 import sanFranciscoPhotos from './photos/san-francisco-august-2025.json'
 import sanFranciscoAprilPhotos from './photos/san-francisco-april-2026.json'
 import sanFranciscoFebruaryPhotos from './photos/san-francisco-february-2026.json'
+import redwoodAprilPhotos from './photos/redwood-national-park-april-2026.json'
 import pointReyes092026 from './photos/point-reyes-september-2026.json'
 import anoNuevoPhotos from './photos/ano-nuevo-state-park-september-2026.json'
 import goldenGateBridgePhotos from './photos/golden-gate-bridge-september-2026.json'
@@ -79,6 +80,12 @@ const tripData = [
     location: 'San Francisco, California, USA',
     date: 'April 4, 2026',
     photos: sanFranciscoAprilPhotos,
+  },
+  {
+    title: 'Redwood National Park',
+    location: 'Del Norte and Humboldt Counties, California, USA',
+    date: 'April 2026',
+    photos: redwoodAprilPhotos,
   },
   {
     title: 'San Francisco',
