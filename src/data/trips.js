@@ -13,8 +13,15 @@ import pointReyes092026 from './photos/point-reyes-september-2026.json'
 import anoNuevoPhotos from './photos/ano-nuevo-state-park-september-2026.json'
 import goldenGateBridgePhotos from './photos/golden-gate-bridge-september-2026.json'
 import shorelineLakePhotos from './photos/shoreline-lake-june-2026.json'
+import rainyDayPhotos from './photos/a-rainy-day-october-2026.json'
 
 const tripData = [
+  {
+    title: "'A Rainy Day' in New York City",
+    location: 'New York, New York, USA',
+    date: 'October 2026',
+    photos: rainyDayPhotos,
+  },
   {
     title: 'Golden Gate Park',
     location: 'San Francisco, California, USA',
