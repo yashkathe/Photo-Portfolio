@@ -14,8 +14,15 @@ import anoNuevoPhotos from './photos/ano-nuevo-state-park-september-2026.json'
 import goldenGateBridgePhotos from './photos/golden-gate-bridge-september-2026.json'
 import shorelineLakePhotos from './photos/shoreline-lake-june-2026.json'
 import rainyDayPhotos from './photos/a-rainy-day-october-2026.json'
+import octoberFallPhotos from './photos/october-fall-new-hampshire-october-2026.json'
 
 const tripData = [
+  {
+    title: "'Experiencing the Peak Fall Season' in New Hampshire",
+    location: 'New Hampshire, USA',
+    date: 'October 2026',
+    photos: octoberFallPhotos,
+  },
   {
     title: "'A Rainy Day' in New York City",
     location: 'New York, New York, USA',
