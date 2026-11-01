@@ -15,8 +15,15 @@ import goldenGateBridgePhotos from './photos/golden-gate-bridge-september-2026.j
 import shorelineLakePhotos from './photos/shoreline-lake-june-2026.json'
 import rainyDayPhotos from './photos/a-rainy-day-october-2026.json'
 import octoberFallPhotos from './photos/october-fall-new-hampshire-october-2026.json'
+import craterLakePhotos from './photos/crater-lake-national-park-october-2026.json'
 
 const tripData = [
+  {
+    title: 'Crater Lake National Park',
+    location: 'Klamath County, Oregon, USA',
+    date: 'October 2026',
+    photos: craterLakePhotos,
+  },
   {
     title: "'Experiencing the Peak Fall Season' in New Hampshire",
     location: 'New Hampshire, USA',
